@@ -7,7 +7,7 @@
 3. Give your Application a name
 4. + Create New RUM Application
 5. Save the Client Token from RUM Application
-6. Save the Application ID from RUM Application
+6. Save the Application ID from RUM Application (note this is _*not*_ the same as a your Datadog Application Key)
 
 ##Steps
 1. Fork this repo
