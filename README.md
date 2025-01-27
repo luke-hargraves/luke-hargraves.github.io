@@ -15,7 +15,7 @@
 2. Rename to yourGitHubusername.github.io
 3. Follow steps here on how to create a Github pages site: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
 4. yourGitHubusername.github.io will serve as the page on which you'll test and collect RUM sessions
-5. In the index.html file, update the client token and application ID to the values from your RUM application
+5. In the following places, update the client token and application ID to the values from your RUM application: /index.html, /games/tic.html, /test/index.html
 
 ##Already have a GitHub pages site?
 1. Github only allows one site.github.io page which has to be named after your username, i.e starryknight620.github.io
