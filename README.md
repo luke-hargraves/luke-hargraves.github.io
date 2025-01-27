@@ -3,11 +3,12 @@
 ##Pre-requisites
 
 1. Go to https://app.datadoghq.com/rum/application/create
-2. Create with Application type: JS Application
-3. Give your Application a name
-4. + Create New RUM Application
-5. Save the Client Token from RUM Application
-6. Save the Application ID from RUM Application (note this is _*not*_ the same as a your Datadog Application Key)
+2.   Make sure you are in your Datadog Sandbox when creating this! 
+3. Create with Application type: JS Application
+4. Give your Application a name
+5. + Create New RUM Application
+6. Save the Client Token from RUM Application
+7. Save the Application ID from RUM Application (note this is _*not*_ the same as a your Datadog Application Key)
 
 ##Steps
 1. Fork this repo
