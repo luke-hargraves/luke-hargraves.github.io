@@ -133,6 +133,23 @@
             </div>
       </form>
       </div>
+    <p>For checking the browser's language, 
+       double click the "Check Language" button: 
+    </p> 
+  
+    <button ondblclick="checklang()"> 
+      Check Language 
+    </button> 
+  
+    <p id="lang"></p> 
+  
+    <script> 
+        function checklang() { 
+            var l =  
+                "Browser's Language : " + navigator.language; 
+            document.getElementById("lang").innerHTML = l; 
+        } 
+    </script> 
   <!-- ======= End Form ======= -->
 
 
