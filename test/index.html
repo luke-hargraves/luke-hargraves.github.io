@@ -26,7 +26,7 @@
       defaultPrivacyLevel: 'allow',      
       allowFallbackToLocalStorage: 'true',
     });
-    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('lang-pref', navigator.language);
+    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('lang-pref', window.location.hostname);
 </script>
 <!-- ======= ngupta dogpark RUM end======= -->
 
