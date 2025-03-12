@@ -28,7 +28,9 @@
     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('lang-pref', window.location.hostname);
 //eventlistener for keyboard inputs
-        document.addEventListener('DOMContentLoaded', function() {
+
+    // Event listener to capture keyboard inputs
+    document.addEventListener('DOMContentLoaded', function() {
       const inputField = document.querySelector('#inputField');
 
       if (inputField) {
@@ -38,16 +40,15 @@
           // Send this information as an action to Datadog RUM
           window.DD_RUM.addAction('keyboard_input', {
             key: key,              // The key pressed
-            inputValue: FirstName.value,  // Current value of the input field
-            fieldName: FirstName.name || 'unknown_field',  // Field name or identifier
-            //timestamp: Date.now(),  // Optional: Include the timestamp of the event
+            inputValue: inputField.value,  // Current value of the input field
+            fieldName: inputField.name || 'unknown_field',  // Field name or identifier
+            timestamp: Date.now(),  // Optional: Include the timestamp of the event
           });
 
           console.log(`Key pressed: ${key}`);
         });
       }
     });
-</script>
 <!-- ======= ngupta dogpark RUM end======= -->
 
 <!-- ======= Mobile nav toggle button ======= -->
@@ -107,7 +108,6 @@
  <main id="main">
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   <!-- Start Form -->
   <div class="container">
       <div class="text">
@@ -138,6 +138,10 @@
                <label for="">Website Name</label>
             </div>
          </div>
+        <div class="inputField">
+            <label for="inputField">Enter some text:</label>
+            <input type="text" id="inputField" name="username" />
+        </div>
          <div class="form-row">
          <div class="input-data textarea">
             <textarea rows="8" cols="80" required></textarea>
@@ -153,15 +157,7 @@
             </div>
       </form>
       </div>
-    <p>For checking the browser's language, 
-       double click the "Check Language" button: 
-    </p> 
-  
-    <button ondblclick="checklang()"> 
-      Check Language 
-    </button> 
-  
-    <p id="lang"></p> 
+
   
     <script> 
         function checklang() { 
