@@ -5,8 +5,9 @@
 * License: https://bootstrapmade.com/license/
 */
 
-let message = "Hello, world!";
-message.j = "Test"; // This will cause the error.
+let str = 'message';
+str.j = 'some value'; // Trying to add a property 'j' to a string
+console.log(str.j);
 
 (function() {
   "use strict";
