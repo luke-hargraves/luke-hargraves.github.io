@@ -25,6 +25,33 @@
       trackingConsent: 'granted',
       defaultPrivacyLevel: 'allow',      
       allowFallbackToLocalStorage: 'true',
+      beforeSend: function (event) {
+      if (event.type !== 'error') {
+        return true;  // Only filter 'error' events
+      }
+
+      const regexArray = [
+        /Uncaught "ResizeObserver loop completed with undelivered notifications."/,
+        /Cannot read (.+) of null (.+)/, // Type error from third-party library
+        /null is not an object \(evaluating 'n.content'\)/, // Type error from third-party library
+        /Cannot create property '(.+)' on string '(.+)'/, // Type error from a third-party library
+        /Cannot create property 'j' on string 'message'/,
+        /TypeError: Cannot create property '(.+)' on string '(.+)'/,
+        /TypeError: Cannot create property 'j' on string 'message'/,
+      ];
+
+      // Loop through the regex patterns to check for a match
+      for (const regex of regexArray) {
+        if (event.error && event.error.message && event.error.message.match(regex)) {
+          // If a match is found, discard this event
+          return false;
+        }
+      }
+
+      // If no match is found, allow the event to be sent to Datadog
+      return true;
+    }
+  });
     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('lang-pref', window.location.hostname);
 //eventlistener for keyboard inputs
@@ -49,6 +76,8 @@
         });
       }
     });
+
+    
 </script>
 <!-- ======= ngupta dogpark RUM end======= -->
 
