@@ -24,10 +24,8 @@
       trackLongTasks: true,
       trackingConsent: 'granted',
       defaultPrivacyLevel: 'allow',
-      allowFallbackToLocalStorage: 'true',  
-    });
-    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
-    beforeSend: function (event) {
+      allowFallbackToLocalStorage: 'true',
+      beforeSend: function (event) {
       if (event.type !== 'error') {
         return true;  // Only filter 'error' events
       }
@@ -54,6 +52,8 @@
       return true;
     }
   });
+    });
+    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
 </script>
 <!-- ======= ngupta dogpark RUM end======= -->
 
