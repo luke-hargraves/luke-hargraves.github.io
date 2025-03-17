@@ -5,8 +5,10 @@
 * License: https://bootstrapmade.com/license/
 */
 
-let str = 'message';
-str.j = 'some value'; // Trying to add a property 'j' to a string
+console.log("Script is running!");
+
+let str = "message";
+str.j = "test";  // Attempting to add a property 'j' to a string
 console.log(str.j);
 
 (function() {
