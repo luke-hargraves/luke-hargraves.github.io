@@ -5,6 +5,9 @@
 * License: https://bootstrapmade.com/license/
 */
 
+let message = "Hello, world!";
+message.j = "Test"; // This will cause the error.
+
 (function() {
   "use strict";
 
