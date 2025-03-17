@@ -8,8 +8,9 @@
 console.log("Script is running!");
 
 let str = "message";
-str.j = "test";  // Attempting to add a property 'j' to a string
-console.log(str.j);
+Object.freeze(str);  // Freezing the string will prevent adding properties
+str.j = "test";  // Attempting to add a property 'j' to a frozen string
+console.log(str.j);  // Will throw a TypeError in strict mode
 
 (function() {
   "use strict";
