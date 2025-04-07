@@ -52,7 +52,10 @@
       return true;
     }
     });
-    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('lang-pref', window.location.hostname);
+    window.DD_RUM && window.DD_RUM.setGlobalContextProperty({
+        'browser-timestamp', Date().getTime(),
+        'time-lapsed-since-navigation', performance.now()                                                   
+    });
 //eventlistener for keyboard inputs
 
     // Event listener to capture keyboard inputs
