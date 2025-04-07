@@ -53,7 +53,7 @@
     }
     });
     //Collect timestamps as custom attributes
-    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('browser-timestamp', Date().getTime());
+    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('browser-timestamp', new Date().getTime());
     window.DD_RUM.setGlobalContextProperty('time-lapsed-since-navigation', performance.now());
 //eventlistener for keyboard inputs
 
