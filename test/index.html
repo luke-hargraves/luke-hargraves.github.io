@@ -53,7 +53,7 @@
     }
     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty({
-        'browser-timestamp', Date.getTime(),
+        'browser-timestamp', Date().getTime(),
         'time-lapsed-since-navigation', performance.now()                                                   
     });
 //eventlistener for keyboard inputs
