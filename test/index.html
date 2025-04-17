@@ -64,7 +64,8 @@
       if (inputField) {
         inputField.addEventListener('keydown', function(event) {
           const key = event.key; // Get the key pressed
-
+          //submit custom duration vital for filling in form component
+          const reference = window.DD_RUM.startDurationVital("input_field");
           // Send this information as an action to Datadog RUM
           window.DD_RUM.addAction('keyboard_input', {
             key: key,              // The key pressed
@@ -72,8 +73,10 @@
             fieldName: inputField.name || 'unknown_field',  // Field name or identifier
             timestamp: Date.now(),  // Optional: Include the timestamp of the event
           });
-
+          //stop duration vital calculation 
+          window.DD_RUM.stopDurationVital(reference);    
           console.log(`Key pressed: ${key}`);
+          console.log(reference)  
         });
       }
     });
