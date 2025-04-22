@@ -7,18 +7,6 @@
 
 console.log("Script is running!");
 
-let str = "message";
-try {
-  str.j = "test";  // Attempting to add a property to a string
-  if (typeof str !== 'object') {
-    throw new TypeError("Cannot create property 'j' on string 'message'");
-  }
-} catch (e) {
-  console.error(e);  // This will log the error to the console
-  // Datadog RUM should pick up this error
-}
-
-
 (function() {
   "use strict";
 
