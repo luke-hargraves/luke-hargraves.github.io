@@ -50,6 +50,7 @@
       if (event.type === 'view' && event.view.name === '/') {
         event.view.name = 'homepage';
       }
+        return true;
     }
     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
