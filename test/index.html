@@ -45,12 +45,13 @@
       allowFallbackToLocalStorage: true,
       beforeSend: function(event) {
       if (event.type === "action" && event.action && event.action.name) {
-        if (event.action.name === "click on First Name") {
+        console.log("Captured action name:", `"${event.action.name}"`);
+        // Partial match for First Name field
+        if (event.action.name.includes("First Name")) {
           event.action.name = "FN entry";
+          console.log("Renamed action name to:", `"${event.action.name}"`);
         }
       }
-      return true; // Make sure the event is still sent
-    }
     });
   </script>
 
