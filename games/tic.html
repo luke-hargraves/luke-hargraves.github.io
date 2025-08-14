@@ -57,8 +57,11 @@
 
       beforeSend: function (event) {
         if (event.type === "action" && event.action && event.action.name) {
-          if (event.action.name.includes("click on TIC")) {
+          console.log("Original action name:", `"${event.action.name}"`);
+
+          if (event.action.name.includes("TIC")) {
             event.action.name = "click on game square";
+            console.log("Renamed action name to:", `"${event.action.name}"`);
           }
         }
         return true; // Ensure the event is still sent
@@ -67,9 +70,6 @@
 
   window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
 </script>
-
-
-
 
     <!-- Datadog Logs Initialization -->
   <html>
