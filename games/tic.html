@@ -53,7 +53,9 @@
         trackingConsent: "granted",
         defaultPrivacyLevel: "allow",
         allowFallbackToLocalStorage: "true",
-beforeSend: function (event) {
+        beforeSend: function (event) {
+  console.log("beforeSend fired:", event);
+
   if (event.type === "action" && event.action && event.action.name) {
     const original = event.action.name.trim().toLowerCase();
     if (original.startsWith("click on tic tac toe game starts by")) {
@@ -61,7 +63,7 @@ beforeSend: function (event) {
       event.action.name = "click on game square";
     }
   }
-  return true; // Make sure the event is still sent
+  return true;
 }
       });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
