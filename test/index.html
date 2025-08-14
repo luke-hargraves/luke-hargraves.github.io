@@ -44,16 +44,13 @@
       defaultPrivacyLevel: 'allow',
       allowFallbackToLocalStorage: true,
       beforeSend: function(event) {
-      if (event.type === "action" && event.action && event.action.name) {
-        console.log("Captured action name:", `"${event.action.name}"`);
-        // Partial match for First Name field
-        if (event.action.name.includes("First Name")) {
-          event.action.name = "FN entry";
-          console.log("Renamed action name to:", `"${event.action.name}"`);
-        }
-      }
-      return true;
+  if (event.type === "action" && event.action && event.action.target) {
+    if (event.action.target.name === "First Name") {
+      event.action.target.name = "FN Entry Field";
     }
+  }
+  return true; // Ensure the event is still sent
+}
     });
   </script>
 
