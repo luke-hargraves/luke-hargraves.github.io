@@ -57,7 +57,7 @@
 
       beforeSend: function (event) {
         if (event.type === "action" && event.action && event.action.name) {
-          if (event.action.name.startsWith("click on TIC")) {
+          if (event.action.name.includes("click on TIC")) {
             event.action.name = "click on game square";
           }
         }
@@ -67,6 +67,8 @@
 
   window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
 </script>
+
+
 
 
     <!-- Datadog Logs Initialization -->
