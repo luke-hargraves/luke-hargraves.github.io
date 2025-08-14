@@ -55,11 +55,12 @@
         allowFallbackToLocalStorage: "true",
         beforeSend: function (event) {
         if (event.type === "action" && event.action && event.action.name) {
-          if (event.action.name.startsWith("click on TIC TAC TOE Game starts by")) {
-            event.action.name = "click on game square";
-          }
+         const original = event.action.name.trim().toLowerCase();
+        if (original.startsWith("click on tic tac toe game starts by")) {
+         event.action.name = "click on game square";
         }
-      },
+      }
+     }
       });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
   </script>
