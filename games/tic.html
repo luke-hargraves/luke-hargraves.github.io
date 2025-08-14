@@ -34,36 +34,40 @@
 </head>
 
 <body>
-  <!-- Datadog RUM Init -->
-  <script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js"></script>
-  <script>
-    window.DD_RUM &&
-      window.DD_RUM.init({
-        clientToken: "pub02889030d6147b469c6736c64e609b35",
-        applicationId: "012a1d19-38df-4e55-9412-6ceb64e72490",
-        site: "datadoghq.com",
-        service: "datadogrum-pirates-games-page",
-        env: "test",
-        version: "1.1.0",
-        sessionSampleRate: 100,
-        sessionReplaySampleRate: 100,
-        trackUserInteractions: true,
-        trackResources: true,
-        trackLongTasks: true,
-        trackingConsent: "granted",
-        defaultPrivacyLevel: "allow",
-        allowFallbackToLocalStorage: "true",
-        beforeSend: function (event) {
-  if (event.type === "action" && event.action && event.action.name) {
-    if (event.action.name.toLowerCase().includes("tapping")) {
-      event.action.name = "click on game square";
-    }
-  }
-  return true; // Make sure the event is still sent
-}
-      });
-    window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
-  </script>
+  
+<!-- Datadog RUM Init -->
+<script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js"></script>
+<script>
+  window.DD_RUM &&
+    window.DD_RUM.init({
+      clientToken: "pub02889030d6147b469c6736c64e609b35",
+      applicationId: "012a1d19-38df-4e55-9412-6ceb64e72490",
+      site: "datadoghq.com",
+      service: "datadogrum-pirates-games-page",
+      env: "test",
+      version: "1.1.0",
+      sessionSampleRate: 100,
+      sessionReplaySampleRate: 100,
+      trackUserInteractions: true,
+      trackResources: true,
+      trackLongTasks: true,
+      trackingConsent: "granted",
+      defaultPrivacyLevel: "allow",
+      allowFallbackToLocalStorage: "true",
+
+      beforeSend: function (event) {
+        if (event.type === "action" && event.action && event.action.name) {
+          if (event.action.name.startsWith("click on TIC")) {
+            event.action.name = "click on game square";
+          }
+        }
+        return true; // Ensure the event is still sent
+      },
+    });
+
+  window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
+</script>
+
 
     <!-- Datadog Logs Initialization -->
   <html>
