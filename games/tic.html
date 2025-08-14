@@ -54,16 +54,13 @@
         defaultPrivacyLevel: "allow",
         allowFallbackToLocalStorage: "true",
         beforeSend: function (event) {
-  console.log("beforeSend fired:", event);
-
   if (event.type === "action" && event.action && event.action.name) {
-    const original = event.action.name.trim().toLowerCase();
-    if (original.startsWith("click on tic tac toe game starts by")) {
-      console.log("Changing RUM action name:", event.action.name, "→ click on game square");
+    if (event.action.name.toLowerCase().includes("tapping")) {
       event.action.name = "click on game square";
     }
   }
-  return true;
+  return true; // Make sure the event is still sent
+}
 }
       });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
