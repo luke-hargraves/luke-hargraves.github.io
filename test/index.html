@@ -44,12 +44,12 @@
       defaultPrivacyLevel: 'allow',
       allowFallbackToLocalStorage: true,
       beforeSend: function(event) {
-  if (event.type === "action" && event.action && event.action.target) {
-    if (event.action.target.name === "First Name") {
-      event.action.target.name = "FN Entry Field";
+  if (event.type === "resource" && event.resource && event.resource.url) {
+    if (event.resource.url === "https://rum.naveengupta.info/img/favicon.ico") {
+      event.resource.url = "https://rum.naveengupta.info/img/dd-logo-favicon.ico";
     }
   }
-  return true; // Ensure the event is still sent
+  return true; // ensure the event is still sent
 }
     });
   </script>
