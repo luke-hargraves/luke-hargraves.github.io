@@ -46,18 +46,6 @@
       trackingConsent: 'granted',
       defaultPrivacyLevel: 'allow',
       allowFallbackToLocalStorage: 'true',
-      beforeSend: (event, context) => {
-      if (event.type === 'view') {
-        try {
-          const url = new URL(event.view.url);
-          if (url.pathname === '/') {
-            event.view.name = 'homepage';
-          }
-        } catch (e) {
-          // Ignore invalid URLs just in case
-        }
-      }
-    }
     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
   </script>
