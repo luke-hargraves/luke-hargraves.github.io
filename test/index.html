@@ -47,7 +47,7 @@
       beforeSend: function(event) {
       if (event.type === "action" && event.action && event.action.target) {
         if (event.action.target.name === "First Name") {
-          event.action.target.name = "FN Entry Field";
+          event.action.target.name = "First Name Entry Field";
         }
       }
       return true; // ensure the event is still sent
