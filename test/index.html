@@ -43,15 +43,15 @@
       trackingConsent: 'granted',
       defaultPrivacyLevel: 'allow',
       allowFallbackToLocalStorage: true,
-  beforeSend: (event) => {
-      if (event.type === "resource" && event.resource?.url) {
-        if (event.resource.url === "https://rum.luke-hargraves.info/img/favicon.ico") {
-          event.resource.url = "https://rum.luke-hargraves.info/img/dd-logo-favicon.ico";
+      beforeSend: (event) => {
+          if (event.type === "resource" && event.resource?.url) {
+            if (event.resource.url === "https://rum.luke-hargraves.info/img/favicon.ico") {
+              event.resource.url = "https://rum.luke-hargraves.info/img/dd-logo-favicon.ico";
+            }
+          }
+          return true; // always return true to send the event
         }
-      }
-      return true; // always return true to send the event
-    }
-  });
+      });
   </script>
 
     <!-- Datadog Logs Initialization -->
