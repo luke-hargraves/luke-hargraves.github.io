@@ -45,8 +45,8 @@
       allowFallbackToLocalStorage: true,
       beforeSend: (event) => {
           if (event.type === "resource" && event.resource?.url) {
-            if (event.resource.url === "https://rum.luke-hargraves.info/img/favicon.ico") {
-              event.resource.url = "https://rum.luke-hargraves.info/img/dd-logo-favicon.ico";
+            if (event.resource.url === "https://luke-hargraves.github.info/img/favicon.ico") {
+              event.resource.url = "https://luke-hargraves.github.info/img/dd-logo-favicon.ico";
             }
           }
           return true; // always return true to send the event
