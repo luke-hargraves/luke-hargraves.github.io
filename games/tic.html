@@ -38,10 +38,11 @@
 <!-- Datadog RUM Init -->
 <script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js"></script>
 <script>
-  window.DD_RUM && window.DD_RUM.init({
-      clientToken: "pub23577c164ee0bb1b0f9021d5ecae9ba1",
-      applicationId: "fb8a7b98-0548-4edb-a0c6-a0514624d240",
-      site: "datadoghq.com",
+  window.DD_RUM &&
+    window.DD_RUM.init({
+      clientToken: '<YOUR_CLIENT_TOKEN>',
+      applicationId: '<YOUR_APPLICATION_ID>',
+      site: '<YOUR_DATADOG_SITE>',
       service: "datadogrum-pirates-games-page",
       env: "test",
       version: "1.1.0",
@@ -53,15 +54,15 @@
       trackingConsent: "granted",
       defaultPrivacyLevel: "allow",
       allowFallbackToLocalStorage: "true",
-      beforeSend: (event) => {
-      if (event.type === "error" && event.error?.message) {
-        if (event.error.message === "myfunc_2 is not defined") {
-          event.error.message = "the reset button is broken";
-        }
-      }
-      return true; // send the event after modification
+      beforeSend: function(event) {
+  if (event.type === "error" && event.error && event.error.message) {
+    if (event.error.message === "myfunc_2 is not defined") {
+      event.error.message = "the reset button is broken";
     }
-  });
+  }
+  return true; // send the event after modification
+}
+    });
 </script>
 
     <!-- Datadog Logs Initialization -->
